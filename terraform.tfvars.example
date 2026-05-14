@@ -9,4 +9,3 @@ resource_tags = {
   Owner       = "your-name"
   ManagedBy   = "terraform"
 }
-

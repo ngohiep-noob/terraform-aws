@@ -4,4 +4,3 @@ $ErrorActionPreference = "Stop"
 
 terraform init -input=false
 terraform plan -out tfplan
-

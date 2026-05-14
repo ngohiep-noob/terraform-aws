@@ -35,4 +35,3 @@ variable "resource_tags" {
     ManagedBy   = "terraform"
   }
 }
-
