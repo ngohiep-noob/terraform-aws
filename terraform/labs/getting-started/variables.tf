@@ -1,7 +1,7 @@
 variable "project_name" {
   description = "Project prefix for resource naming."
   type        = string
-  default     = "tf-dev"
+  default     = "getting-started"
 }
 
 variable "aws_region" {
@@ -31,7 +31,7 @@ variable "resource_tags" {
   description = "Additional tags to apply to resources."
   type        = map(string)
   default = {
-    Environment = "test-dev"
+    Environment = "quickstart"
     ManagedBy   = "terraform"
   }
 }

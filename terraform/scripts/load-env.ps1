@@ -1,5 +1,5 @@
 # Auto-load AWS credentials from .env file
-$envFile = Join-Path $PSScriptRoot "..\\.env"
+$envFile = Join-Path $PSScriptRoot "..\..\.env"
 
 if (Test-Path $envFile) {
   Write-Host "Loading credentials from .env..." -ForegroundColor Green
