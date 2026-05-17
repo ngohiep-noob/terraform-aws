@@ -36,8 +36,10 @@ Get-Content .env | ForEach-Object {
   }
 }
 
-.\scripts\plan.ps1
+.\scripts\plan.cmd
 ```
+
+If your machine has a restrictive PowerShell execution policy, use the `.cmd` launchers in `scripts/` instead of invoking the `.ps1` files directly.
 
 ### Option 2: AWS Credentials File
 
@@ -51,10 +53,14 @@ aws configure --profile default
 
 ### Option 3: AWS CLI Profile
 
-Update `terraform.tfvars` with your profile name:
+Update `terraform.tfvars` with your profile name only if you want Terraform to use a named shared profile:
 ```hcl
 aws_profile = "your-profile-name"
 ```
+
+If you are using aws login / SSO-backed credentials, leave `aws_profile` unset so Terraform can use the active login session from your AWS CLI environment.
+
+The `scripts/*` launchers will also try to export AWS CLI login credentials into the Terraform process automatically when no `.env` file is present.
 
 **⚠️ IMPORTANT:** Never commit `.env` or `terraform.tfvars` to git (already in `.gitignore`).
 
@@ -71,9 +77,9 @@ Copy-Item terraform.tfvars.example terraform.tfvars
 3. Run common operations:
 
 ```powershell
-.\scripts\plan.ps1
-.\scripts\apply.ps1
-.\scripts\destroy.ps1
+.\scripts\plan.cmd
+.\scripts\apply.cmd
+.\scripts\destroy.cmd
 ```
 
 ## Manual Terraform commands
